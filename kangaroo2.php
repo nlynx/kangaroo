@@ -29,17 +29,33 @@ if(check_number($arr) == FALSE) {
     exit;
 }
 
+    if($v1<1) {
+        echo "Скорость кенгуру №1 не должна быть меньше 1";
+        exit;
+    } elseif(!is_int($v1)) {
+        echo "Скорость кенгуру №1 должна быть целым числом";
+        exit;
+    } 
+    
+  
+    if($v2<1) {
+        echo "Скорость кенгуру №2 не должна быть меньше 1";
+        exit;
+    } elseif(!is_int($v2)) {
+        echo "Скорость кенгуру №2 должна быть целым числом";
+        exit;
+    } 
+    
 for ($i = 0;$i<=10000;$i++){
 
     $x1 = $x1 + $v1;
     $x2 = $x2 + $v2;
      
-    if($x1 == $x2) {
-        
+    if($x1==$x2) {
         $result = TRUE;
         break;
     } else {
-        $result = FALSE;        
+        $result = FALSE;  
     }
 
 }
