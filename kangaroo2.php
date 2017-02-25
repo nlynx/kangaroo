@@ -6,16 +6,30 @@ $v1 = 2; // задается скорость кенгуру №1 (размер 
 $v2 = 1; // задается скорость кенгуру №2 (размер шага)
 $result; 
 
-if($v1<1) {
-    echo "Скорость кенгуру №1 не должна быть меньше 1";
-    exit;
+$arr = array ($x1,$x2,$v1,$v2);
+
+function check_number($arr)  {
+    $errors = array();
+    foreach ($arr as $var) {
+        if (!is_int($var)) {
+        $errors[] = $var;
+        } 
+    } 
+
+    if(count(array_filter($errors)) !== 0) {
+        foreach($errors as $value) {
+            echo $value . "  должно быть целым числом" .  "<br>";
+        } return FALSE;
+        } else { 
+          return TRUE; 
+    }
 }
-if($v2<1) {
-    echo "Скорость кенгуру №2 не должна быть меньше 1";
+ 
+if(check_number($arr) == FALSE) {
     exit;
 }
 
-for ($i = 1;$i<=9999;$i++){
+for ($i = 0;$i<=10000;$i++){
 
     $x1 = $x1 + $v1;
     $x2 = $x2 + $v2;
